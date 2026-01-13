@@ -7,8 +7,8 @@ database:
     dsn: https://postgres
     host: https://postgres
     port: 8081
-    db_name: auth_pg
-    login: dima
+    database_name: auth_pg
+    username: dima
     password:
     ssl_mode: disable
 
@@ -17,7 +17,7 @@ cache:
     dsn: https://redis
     host: https://redis
     port: 8082
-    db_name: auth_rs
-    login: dima
+    database_name: auth_rs
+    username: dima
     password:
     ssl_mode: disable
