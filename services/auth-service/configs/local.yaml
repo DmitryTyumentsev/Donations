@@ -1,1 +1,23 @@
-env = local
+server:
+  host: donate.ru
+  port: 8080
+
+database:
+  postgres:
+    dsn: https://postgres
+    host: https://postgres
+    port: 8081
+    db_name: auth_pg
+    login: dima
+    password:
+    ssl_mode: disable
+
+cache:
+  redis:
+    dsn: https://redis
+    host: https://redis
+    port: 8082
+    db_name: auth_rs
+    login: dima
+    password:
+    ssl_mode: disable
