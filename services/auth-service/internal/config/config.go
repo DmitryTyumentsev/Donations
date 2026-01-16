@@ -2,15 +2,13 @@ package config
 
 import (
 	"time"
-
-	"github.com/spf13/viper"
 )
 
 type Config struct {
 	Env      string `yaml:"env" env:"ENV"`
 	Database `yaml:"database"` //TODO: правильно так или сделать Database *Database? как в памяти все это устроено чтобы было ниже потребление(сколько байт сейчас выделяется и сколько если *Database использовать? Как делать чтобы было удобнее использовать в дальнейшем в коде? Верно понимаю что только при запуске приложения один раз в текущей вариации каждый раз когда вызывается эта структура в любом файле проекта будет создаваться копия в памяти?
-	Cache    `yaml:"cache"`
-	Server   `yaml:"server"`
+	//Cache    `yaml:"cache"`
+	Server `yaml:"server"`
 }
 
 type Database struct {
@@ -44,7 +42,7 @@ type Postgres struct {
 }
 
 type Server struct {
-	Host              string        `yaml:"host" env:"SERVER_HOST"` //TODO: это и есть то место где надо делать префиксы в viper.SetEnvPrefix ?
+	Host              string        `yaml:"host" env:"SERVER_HOST"` //TODO: где и зачем указываем префиксы в viper.SetEnvPrefix ? в самом env или yaml добавляем префикс?
 	Port              int           `yaml:"port" env:"PORT"`
 	MaxConnections    *int          `yaml:"max_connections" env:"MAX_CONNECTIONS" env-default:"10"`
 	MinConnections    *int          `yaml:"min_connections" env:"MIN_CONNECTIONS" env-default:"1"`
@@ -53,6 +51,6 @@ type Server struct {
 	HealthCheckPeriod time.Duration `yaml:"health_check_period" env:"HEALTH_CHECK_PERIOD" env-default:"5m"`
 }
 
-func LoadConfig() (*Config, error) {
-	v := viper.New()
-}
+//func LoadConfig() (*Config, error) {
+//v := viper.New()
+//}
